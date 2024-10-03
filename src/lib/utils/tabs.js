@@ -46,16 +46,6 @@ export const tabs = [
                 label: 'Drafts',
                 dest: '/drafts',
             },
-            {
-                icon: 'emoji_events',
-                label: 'Trophy Room',
-                dest: '/awards',
-            },
-            {
-                icon: 'military_tech',
-                label: 'Records',
-                dest: '/records',
-            },
         ]
     },
 ];
