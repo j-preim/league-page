@@ -35,8 +35,8 @@
         position: relative;
         z-index: 1;
         width: 100%;
-        min-width: 470px;
-        max-width: 470px;
+        min-width: 300px;
+        max-width: 400px;
         min-height: 100%;
 		background-color: var(--ebebeb);
         border-left: var(--eee);
@@ -111,6 +111,10 @@
         height: auto;
         left: 50%;
         top: 50%;
+    }
+
+    h3 {
+        text-align: center;
     }
 
     h4 {
