@@ -46,7 +46,7 @@
 	}
 
 	#logo {
-		width: 150px;
+		width: 200px;
 		display: block;
 		margin: 0 auto;
 		padding: 10px;
@@ -71,6 +71,13 @@
 	}
 
 	@media (max-width: 950px) { /* width of the large navBar */
+		#logo {
+		width: 150px;
+		display: block;
+		margin: 0 auto;
+		padding: 10px;
+	}
+
 		.large {
 			display: none;
 		}
