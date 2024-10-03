@@ -30,24 +30,9 @@
         <LinearProgress indeterminate />
     </div>
 {:then [nflState, rostersData, leagueTeamManagers, leagueData, playersInfo]}
-<div class="standingsTable">
-    <DataTable table$aria-label="League Standings" >
-        <Head> <!-- Team name  -->
-            <Row>
-                <Cell class="center">Team</Cell>
-                {#each columnOrder as column}
-                    <Cell class="center wrappable">{column.name}</Cell>
-                {/each}
-            </Row>
-        </Head>
-        <Body>
-            <!-- 	Standing	 -->
-            {#each standings as standing}
-                <Standing {columnOrder} {standing} {leagueTeamManagers} team={getTeamFromTeamManagers(leagueTeamManagers, standing.rosterID)} />
-            {/each}
-        </Body>
-    </DataTable>
-</div>
+    {#if leagueData.status != 'pre_draft' && leagueData.status != 'complete'}
+        <PowerRankingsDisplay {nflState} {rostersData} {leagueTeamManagers} {leagueData} {playersInfo} />
+    {/if}
 {:catch error}
 	<!-- promise was rejected -->
 	<p>Something went wrong: {error.message}</p>
