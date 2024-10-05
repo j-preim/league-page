@@ -9,7 +9,9 @@
 	$: active = tabs.find(tab => tab.dest == $page.url.pathname || (tab.nest && tab.children.find(subTab => subTab.dest == $page.url.pathname)));
 
 	// toggle dark mode
-	let lightTheme = true;
+	let lightTheme =
+		typeof window === "undefined" ||
+		window.matchMedia("(prefers-color-scheme: light)").matches;
 	
 	function switchTheme() {
 		lightTheme = !lightTheme;
