@@ -9,9 +9,7 @@
 	$: active = tabs.find(tab => tab.dest == $page.url.pathname || (tab.nest && tab.children.find(subTab => subTab.dest == $page.url.pathname)));
 
 	// toggle dark mode
-	let lightTheme =
-		typeof window === "undefined" ||
-		window.matchMedia("(prefers-color-scheme: light)").matches;
+	let lightTheme = true;
 	
 	function switchTheme() {
 		lightTheme = !lightTheme;
@@ -29,7 +27,6 @@
 		if (!logo) {
 			logo = document.createElement("img");
 			logo.id = "logo";
-			logo.src = `/badge${lightTheme ? "" : "dark"}.png`;
 		}
 		logo.src = `/badge${lightTheme ? "" : "dark"}.png`;
 		document.body
