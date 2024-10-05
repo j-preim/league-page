@@ -53,6 +53,9 @@
         #home {
             flex-wrap: wrap;
         }
+        #main {
+        padding: 15px 0;
+    }
     }
 
     .transactions {
@@ -72,9 +75,10 @@
     .homeBanner {
         background-color: var(--blueOne);
         color: #fff;
-        padding: 0.5em 0;
+        padding: 0.7em 0;
         font-weight: 500;
         font-size: 1.5em;
+        margin-bottom: 1em;
     }
 
     /* champ styling */

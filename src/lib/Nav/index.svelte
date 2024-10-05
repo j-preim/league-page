@@ -25,6 +25,15 @@
 		document.head
 		.querySelector('link[href="/smui-dark.css"]')
 		.insertAdjacentElement("afterend", themeLink);
+		let logo = document.body.querySelector("#logo");
+		if (!logo) {
+			logo = document.createElement("img");
+			logo.id = "logo";
+		}
+		logo.src = `/badge${lightTheme ? "" : "dark"}.png`;
+		document.body
+		.querySelector('img[src="/badgedark.png"]')
+		.insertAdjacentElement("afterend", logo);
 	}
 </script>
 

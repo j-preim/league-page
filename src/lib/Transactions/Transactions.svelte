@@ -43,7 +43,7 @@
 
 	h5 {
 		text-align: center;
-		margin: 10px auto 16px;
+		margin: 10px auto 20px;
 	}
 
 	.link {
