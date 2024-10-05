@@ -98,7 +98,11 @@
 </style>
 
 <nav>
-	<a href="/"><img id="logo" alt="league logo" src="/badge.png" /></a>
+	{#if lightTheme}
+		<a href="/"><img id="logo" alt="league logo" src="/badge.png" /></a>
+	{:else}
+	<a href="/"><img id="logo" alt="league logo" src="/badgedark.png" /></a>
+	{/if}
 
 	<div class="container">
 		<IconButton
