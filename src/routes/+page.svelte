@@ -22,7 +22,7 @@
         flex-grow: 1;
         min-width: 320px;
         margin: 0 auto;
-        padding: 60px 0;
+        padding: 30px 0;
     }
 
     .text {
@@ -143,8 +143,8 @@
 <div id="home">
     <div id="main">
         <div class="text">
-            <h3>{leagueName}</h3>
-            <h6>CHOP CHOP!</h6>
+            <h3>Welcome to {leagueName}</h3>
+            <h5 class="center">CHOP CHOP!</h5>
             <!-- homepageText contains the intro text for your league, this gets edited in /src/lib/utils/leagueInfo.js -->
             {@html homepageText }
             <!-- Most recent Blog Post (if enabled) -->
@@ -175,6 +175,10 @@
             {/await}
         </div>
 
+        <div class="transactions" >
+            <Transactions />
+        </div>
+
         <div id="currentChamp">
             {#await waitForAll(podiumsData, leagueTeamManagersData)}
                 <p class="center">Retrieving awards...</p>
@@ -193,10 +197,6 @@
             {:catch error}
                 <p class="center">Something went wrong: {error.message}</p>
             {/await}
-        </div>
-
-        <div class="transactions" >
-            <Transactions />
         </div>
     </div>
 </div>
