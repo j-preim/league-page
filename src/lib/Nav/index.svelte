@@ -12,8 +12,6 @@
 	let lightTheme =
 		typeof window === "undefined" ||
 		window.matchMedia("(prefers-color-scheme: light)").matches;
-
-	let logo = document.body.querySelector("#logo");	
 	
 	function switchTheme() {
 		lightTheme = !lightTheme;
@@ -27,10 +25,11 @@
 		document.head
 		.querySelector('link[href="/smui-dark.css"]')
 		.insertAdjacentElement("afterend", themeLink);
-
+		let logo = document.body.querySelector("#logo");
 		if (!logo) {
 			logo = document.createElement("img");
 			logo.id = "logo";
+			logo.src = "/badgedark.png";
 		}
 		logo.src = `/badge${lightTheme ? "" : "dark"}.png`;
 		document.body
@@ -100,12 +99,10 @@
 </style>
 
 <nav>
-	{#if !logo}	
-		{#if lightTheme}
-			<a href="/"><img id="logo" alt="league logo" src="/badge.png" /></a>
-		{:else}
-		<a href="/"><img id="logo" alt="league logo" src="/badgedark.png" /></a>
-		{/if}
+	{#if lightTheme}
+		<a href="/"><img id="logo" alt="league logo" src="/badge.png" /></a>
+	{:else}
+	<a href="/"><img id="logo" alt="league logo" src="/badgedark.png" /></a>
 	{/if}
 
 	<div class="container">
