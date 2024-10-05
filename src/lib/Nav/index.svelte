@@ -13,6 +13,8 @@
 		typeof window === "undefined" ||
 		window.matchMedia("(prefers-color-scheme: light)").matches;
 	
+	let imgsrc = lightTheme ? "/badge.png" : "/badgedark.png";
+	
 	function switchTheme() {
 		lightTheme = !lightTheme;
 		let themeLink = document.head.querySelector("#theme");
@@ -29,9 +31,8 @@
 		if (!logo) {
 			logo = document.createElement("img");
 			logo.id = "logo";
-			logo.src = "/badgedark.png";
 		}
-		logo.src = `/badge${lightTheme ? "" : "dark"}.png`;
+		logo.src = imgsrc;
 		document.body
 		.querySelector('img[src="/badgedark.png"]')
 		.insertAdjacentElement("afterend", logo);
@@ -99,11 +100,7 @@
 </style>
 
 <nav>
-	{#if lightTheme}
-		<a href="/"><img id="logo" alt="league logo" src="/badge.png" /></a>
-	{:else}
-	<a href="/"><img id="logo" alt="league logo" src="/badgedark.png" /></a>
-	{/if}
+	<a href="/"><img id="logo" alt="league logo" src={imgsrc} /></a>
 
 	<div class="container">
 		<IconButton
