@@ -25,15 +25,15 @@
 		document.head
 		.querySelector('link[href="/smui-dark.css"]')
 		.insertAdjacentElement("afterend", themeLink);
-		let logo = document.body.querySelector("#logo");
-		if (!logo) {
-			logo = document.createElement("img");
-			logo.id = "logo";
-		}
-		logo.src = `/badge${lightTheme ? "" : "dark"}.png`;
-		document.body
-		.querySelector('img[src="/badgedark.png"]')
-		.insertAdjacentElement("afterend", logo);
+		// let logo = document.body.querySelector("#logo");
+		// if (!logo) {
+		// 	logo = document.createElement("img");
+		// 	logo.id = "logo";
+		// }
+		// logo.src = `/badge${lightTheme ? "" : "dark"}.png`;
+		// document.body
+		// .querySelector('img[src="/badgedark.png"]')
+		// .insertAdjacentElement("afterend", logo);
 	}
 </script>
 
@@ -98,7 +98,7 @@
 </style>
 
 <nav>
-	<a href="/"><img id="logo" alt="league logo" src="/badge.png" /></a>
+	<a href="/"><img id="logo" alt="league logo" src="/badgeblue.png" /></a>
 
 	<div class="container">
 		<IconButton
