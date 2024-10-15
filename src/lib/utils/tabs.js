@@ -8,7 +8,7 @@ export const tabs = [
     },
     {
         icon: 'sports',
-        label: 'Matchups',
+        label: 'Scores',
         dest: '/matchups',
     },
     {
