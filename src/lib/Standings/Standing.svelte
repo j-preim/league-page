@@ -3,18 +3,9 @@
   	import { Row, Cell } from '@smui/data-table';
 
     export let columnOrder, team, standing, leagueTeamManagers;
-
-    let rowClass;
-    if (standing.chopped = true) {
-        rowClass = "chopped";
-    }
-    else rowClass = "contrastRow";
 </script>
 
 <style>
-    .chopped {
-        background-color: #ff00004d;
-    }
     .clickable {
         cursor: pointer;
     }
@@ -36,7 +27,7 @@
     }
 </style>
 
-<Row class={rowClass}>
+<Row class="contrastRow">
     <Cell class="">
         <div class="clickable team" on:click={() => gotoManager({leagueTeamManagers, rosterID: standing.rosterID})}>
             <img alt="team avatar" class="teamAvatar clickable" src="{team.avatar}" />
