@@ -104,7 +104,9 @@
             <Body>
                 <!-- 	Standing	 -->
                 {#each standings as standing}
+                {#if !standing.chopped}
                     <Standing {columnOrder} {standing} {leagueTeamManagers} team={getTeamFromTeamManagers(leagueTeamManagers, standing.rosterID)} />
+                {/if}
                 {/each}
             </Body>
         </DataTable>
