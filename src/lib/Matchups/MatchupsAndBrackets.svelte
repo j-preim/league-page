@@ -72,30 +72,6 @@
     </div>
 {:else}
     {#if matchupWeeks.length}
-        <div class="buttonHolder">
-            <Group variant="outlined">
-                <!-- Regular Season -->
-                <Button class="selectionButtons" on:click={() => changeSelection('regular')} variant="{selection == 'regular' ? "raised" : "outlined"}">
-                    <Label>Regular Season</Label>
-                </Button>
-                <!-- Championship Bracket -->
-                <Button class="selectionButtons" on:click={() => changeSelection('champions')} variant="{selection == 'champions' || selection == 'losers' ? "raised" : "outlined"}">
-                    <Label>Playoffs</Label>
-                </Button>
-            </Group>
-            {#if selection == 'champions' || selection == 'losers'}
-                <Group variant="outlined">
-                    <!-- Championship Bracket -->
-                    <Button class="selectionButtons" on:click={() => changeSelection('champions')} variant="{selection == 'champions' ? "raised" : "outlined"}">
-                        <Label>Champions' Bracket</Label>
-                    </Button>
-                    <!-- Losers Bracket -->
-                    <Button class="selectionButtons" on:click={() => changeSelection('losers')} variant="{selection == 'losers' ? "raised" : "outlined"}">
-                        <Label>Losers' Bracket</Label>
-                    </Button>
-                </Group>
-            {/if}
-        </div>
         {#if selection == 'regular'}
             <MatchupWeeks {players} {queryWeek} {matchupWeeks} {regularSeasonLength} {year} {week} bind:selection={selection} {leagueTeamManagers} />
         {/if}
@@ -105,7 +81,7 @@
         </div>
     {/if}
     <!-- {promise has processed -->
-    {#if brackets.champs.bracket[0][0][0].points && (selection == 'champions' || selection == 'losers')}
+    <!-- {#if brackets.champs.bracket[0][0][0].points && (selection == 'champions' || selection == 'losers')}
         <Brackets {queryWeek} {leagueTeamManagers} {players} {brackets} bind:selection={selection} />
-    {/if}
+    {/if} -->
 {/if}
