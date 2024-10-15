@@ -98,7 +98,7 @@
 </style>
 
 <nav>
-	<a href="/"><img id="logo" alt="league logo" src="/badgeblue.png" /></a>
+	<a href="/"><img id="logo" alt="league logo" src="/badgegray.png" /></a>
 
 	<div class="container">
 		<IconButton
