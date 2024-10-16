@@ -114,7 +114,7 @@
 <style>
     .matchup {
         width: 95%;
-        max-width: 600px;
+        max-width: 800px;
         margin: 10px auto;
     }
 
@@ -122,8 +122,6 @@
         display: flex;
         justify-content: space-between;
         position: relative;
-        border: 1px solid #bbb;
-        border-radius: 10px;
         opacity: 0.8;
         cursor: pointer;
 		transition: opacity 0.5s;
@@ -141,6 +139,8 @@
         padding: 5px 2%;
         top: 0;
         z-index: 2;
+        border: 1px solid #bbb;
+        border-radius: 10px;
     }
 
     .divider {
@@ -184,7 +184,7 @@
         flex-grow: 1;
         word-break: break-word;
         color: #fff;
-        font-style: italic;
+        font-style: normal;
     }
 
 	.avatar {
@@ -487,12 +487,12 @@
             <div class="name">{home.manager.name}</div>
             <div class="totalPoints totalPointsR">{round(homePointsTotal)}<div class="totalProjection">{round(homeProjectionTotal)}</div></div>
         </div>
-        <!-- <img class="divider" src="/{winning}Divider.jpg" alt="divider" />
+        <img class="divider" src="/{winning}Divider.jpg" alt="divider" />
         <div class="opponent away{winning == "away" ? " awayGlow" : ""}">
             <div class="totalPoints totalPointsL">{round(awayPointsTotal)}<div class="totalProjection">{round(awayProjectionTotal)}</div></div>
             <div class="name" >{away.manager.name}</div>
             <img class="avatar" src={away.manager.avatar} alt="away team avatar" />
-        </div> -->
+        </div>
     </div>
 
     <div class="rosters" style="max-height: {active == ix ? calcHeight() + "px" : "0"}; {active != ix ? "border: none" : ""};">
