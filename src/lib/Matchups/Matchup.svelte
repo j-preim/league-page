@@ -528,6 +528,9 @@
 
                 <div class="player playerAway">
                     <span class="iconAndTeam iconAndTeamAway">
+                        {#if player.away.pos}
+                            <span class="pos {player.away.pos}">{player.away.pos}</span>
+                        {/if}
                         {#if player.away.avatar}
                             <div class="playerAvatar playerInfo" style="{player.away.avatar}">
                                 {#if player.away.team && player.away.pos != "DEF"}
@@ -535,11 +538,9 @@
                                 {/if}
                             </div>
                         {/if}
-                        {#if player.away.pos}
-                            <span class="pos {player.away.pos}">{player.away.pos}</span>
-                        {/if}
                     </span>
                     <div class="nameHolder nameHolderL{player.away.name == 'Empty'? ' playerEmpty' : ''}">
+                        <span class="playerInfo playerName playerNameAway">{player.away.name}</span>
                         {#if player.away.team}
                             {#if player.away.opponent}
                                 <div class="playerTeam">{player.away.opponent} vs{player.away.pos != "DEF" ? ` ${player.away.team}` : ""}</div>
@@ -547,7 +548,6 @@
                                 <div class="playerTeam">{player.away.pos != "DEF" ? player.away.team : ""}</div>
                             {/if}
                         {/if}
-                        <span class="playerInfo playerName playerNameAway">{player.away.name}</span>
                     </div>
                     <span class="points pointsR">{round(player.away.points)}<div class="totalProjection">{round(player.away.projection)}</div></span>
                 </div>
