@@ -166,9 +166,9 @@
     }
 
     .away {
-        justify-content: flex-end;
-        right: 0;
-        text-align: right;
+        justify-content: flex-start;
+        left: 0;
+        text-align: left;
         background-color: #8b6969;
     }
 
@@ -465,7 +465,7 @@
         right: -16px;
     }
     .teamAwayLogo {
-        left: -16px;
+        right: -16px;
     }
     @media (max-width: 340px) {
         .teamLogo {
