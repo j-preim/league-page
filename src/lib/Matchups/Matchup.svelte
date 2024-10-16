@@ -297,7 +297,7 @@
     }
 
     .iconAndTeamAway {
-        justify-content: flex-end;
+        justify-content: flex-start;
     }
 
     .playerHome {
@@ -306,8 +306,8 @@
     }
 
     .playerAway {
-        padding: 0 2.5% 0 1.5%;
-        text-align: right;
+        padding: 0 1.5% 0 2.5%;
+        text-align: left;
     }
 
     .playerInfo {
@@ -332,7 +332,7 @@
     }
 
     .playerNameAway {
-        text-align: right;
+        text-align: left;
     }
 
     @media (max-width: 500px) {
