@@ -111,7 +111,7 @@
         {:else}
             <span class="spacer" />
         {/if}
-        <h3 class="weekText">{year} Week {displayWeek} Matchups</h3>
+        <h3 class="weekText">{year} Week {displayWeek} Scores</h3>
         {#if displayWeek < matchupWeeks.length}
             <Icon class="material-icons changeWeek" on:click={() => changeWeek(displayWeek + 1)}>chevron_right</Icon>
         {:else}
