@@ -539,7 +539,7 @@
                             <span class="pos {player.away.pos}">{player.away.pos}</span>
                         {/if}
                     </span>
-                    <div class="nameHolder nameHolderR{player.away.name == 'Empty'? ' playerEmpty' : ''}">
+                    <div class="nameHolder nameHolderL{player.away.name == 'Empty'? ' playerEmpty' : ''}">
                         {#if player.away.team}
                             {#if player.away.opponent}
                                 <div class="playerTeam">{player.away.opponent} vs{player.away.pos != "DEF" ? ` ${player.away.team}` : ""}</div>
@@ -549,7 +549,7 @@
                         {/if}
                         <span class="playerInfo playerName playerNameAway">{player.away.name}</span>
                     </div>
-                    <span class="points pointsL">{round(player.away.points)}<div class="totalProjection">{round(player.away.projection)}</div></span>
+                    <span class="points pointsR">{round(player.away.points)}<div class="totalProjection">{round(player.away.projection)}</div></span>
                 </div>
             </div>
         {/each}
