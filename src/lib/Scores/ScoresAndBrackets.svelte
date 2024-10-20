@@ -2,7 +2,6 @@
 <script>
 	import LinearProgress from '@smui/linear-progress';
 	import ScoreWeeks from './ScoreWeeks.svelte';
-	import Brackets from './Brackets.svelte';
     import Button, { Group, Label } from '@smui/button';
     import { goto } from '$app/navigation';
     import { onMount } from 'svelte';
