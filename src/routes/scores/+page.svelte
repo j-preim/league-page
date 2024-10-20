@@ -2,7 +2,7 @@
 	import { ScoresAndBrackets } from '$lib/components';
 
 	export let data;
-	const {queryWeek, scoresData, bracketsData, playersData, leagueTeamManagersData} = data;
+	const {queryWeek, scoresData, playersData, leagueTeamManagersData} = data;
 </script>
 
 <style>
@@ -13,5 +13,5 @@
 </style>
 
 <div id="main">
-    <ScoresAndBrackets {queryWeek} {scoresData} {bracketsData} {playersData} {leagueTeamManagersData} />
+    <ScoresAndBrackets {queryWeek} {scoresData} {playersData} {leagueTeamManagersData} />
 </div>

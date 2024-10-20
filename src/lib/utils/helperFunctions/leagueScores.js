@@ -3,11 +3,11 @@ import { leagueID } from '$lib/utils/leagueInfo';
 import { getNflState } from "./nflState"
 import { waitForAll } from './multiPromise';
 import { get } from 'svelte/store';
-import {matchupsStore} from '$lib/stores';
+import {scoresStore} from '$lib/stores';
 
 export const getLeagueScores = async () => {
-	if(get(matchupsStore).matchupWeeks) {
-		return get(matchupsStore);
+	if(get(scoresStore).scoreWeeks) {
+		return get(scoresStore);
 	}
 
 	const [nflState, leagueData] = await waitForAll(
@@ -24,62 +24,62 @@ export const getLeagueScores = async () => {
 	const year = leagueData.season;
 	const regularSeasonLength = leagueData.settings.playoff_week_start - 1;
 
-	// pull in all matchup data for the season
-	const matchupsPromises = [];
+	// pull in all score data for the season
+	const scoresPromises = [];
 	for(let i = 1; i < leagueData.settings.playoff_week_start; i++) {
-		matchupsPromises.push(fetch(`https://api.sleeper.app/v1/league/${leagueID}/matchups/${i}`, {compress: true}))
+		scoresPromises.push(fetch(`https://api.sleeper.app/v1/league/${leagueID}/matchups/${i}`, {compress: true}))
 	}
-	const matchupsRes = await waitForAll(...matchupsPromises);
+	const scoresRes = await waitForAll(...scoresPromises);
 
-	// convert the json matchup responses
-	const matchupsJsonPromises = [];
-	for(const matchupRes of matchupsRes) {
-		const data = matchupRes.json();
-		matchupsJsonPromises.push(data)
-		if (!matchupRes.ok) {
+	// convert the json score responses
+	const scoresJsonPromises = [];
+	for(const scoresRes of scoresRes) {
+		const data = scoresRes.json();
+		scoresJsonPromises.push(data)
+		if (!scoresRes.ok) {
 			throw new Error(data);
 		}
 	}
-	const matchupsData = await waitForAll(...matchupsJsonPromises).catch((err) => { console.error(err); }).catch((err) => { console.error(err); });
+	const scoresData = await waitForAll(...scoresJsonPromises).catch((err) => { console.error(err); }).catch((err) => { console.error(err); });
 
-	const matchupWeeks = [];
-	// process all the matchups
-	for(let i = 1; i < matchupsData.length + 1; i++) {
-		const processed = processMatchups(matchupsData[i - 1], i);
+	const scoreWeeks = [];
+	// process all the scores
+	for(let i = 1; i < scoresData.length + 1; i++) {
+		const processed = processScores(scoresData[i - 1], i);
 		if(processed) {
-			matchupWeeks.push({
-				matchups: processed.matchups,
+			scoreWeeks.push({
+				scores: processed.scores,
 				week: processed.week
 			});
 		}
 	}
 
-	const matchupsResponse = {
-		matchupWeeks,
+	const scoresResponse = {
+		scoreWeeks,
 		year,
 		week,
 		regularSeasonLength
 	}
 	
-	matchupsStore.update(() => matchupsResponse);
+	scoressStore.update(() => scoresResponse);
 
-	return matchupsResponse;
+	return scoresResponse;
 }
 
-const processMatchups = (inputMatchups, week) => {
-	if(!inputMatchups || inputMatchups.length == 0) {
+const processScores = (inputScores, week) => {
+	if(!inputScores || inputScores.length == 0) {
 		return false;
 	}
-	const matchups = {};
-	for(const match of inputMatchups) {
-		if(!matchups[match.matchup_id]) {
-			matchups[match.matchup_id] = [];
+	const scores = {};
+	for(const score of inputScores) {
+		if(!scores[score.matchup_id]) {
+			scores[score.matchup_id] = [];
 		}
-		matchups[match.matchup_id].push({
-			roster_id: match.roster_id,
-			starters: match.starters,
-			points: match.starters_points,
+		scores[score.matchup_id].push({
+			roster_id: score.roster_id,
+			starters: score.starters,
+			points: score.starters_points,
 		})
 	}
-	return {matchups, week};
+	return {scores, week};
 }
