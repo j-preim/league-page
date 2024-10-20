@@ -5,7 +5,7 @@ import { waitForAll } from './multiPromise';
 import { get } from 'svelte/store';
 import {matchupsStore} from '$lib/stores';
 
-export const getLeagueMatchups = async () => {
+export const getLeagueScores = async () => {
 	if(get(matchupsStore).matchupWeeks) {
 		return get(matchupsStore);
 	}
