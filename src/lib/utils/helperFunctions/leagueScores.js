@@ -61,7 +61,7 @@ export const getLeagueScores = async () => {
 		regularSeasonLength
 	}
 	
-	scoressStore.update(() => scoresResponse);
+	scoresStore.update(() => scoresResponse);
 
 	return scoresResponse;
 }
