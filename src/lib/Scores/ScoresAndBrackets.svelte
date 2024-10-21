@@ -8,7 +8,7 @@
 
 	export let queryWeek, leagueTeamManagersData, scoresData, playersData;
 
-    let players, scoreWeeks, year, week, regularSeasonLength, brackets, leagueTeamManagers;
+    let players, scoreWeeks, year, week, regularSeasonLength, leagueTeamManagers;
 
     let loading = true;
 
