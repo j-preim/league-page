@@ -33,10 +33,10 @@ export const getLeagueScores = async () => {
 
 	// convert the json score responses
 	const scoresJsonPromises = [];
-	for(const scoresRes of scoresRes) {
-		const data = scoresRes.json();
+	for(const scoreRes of scoresRes) {
+		const data = scoreRes.json();
 		scoresJsonPromises.push(data)
-		if (!scoresRes.ok) {
+		if (!scoreRes.ok) {
 			throw new Error(data);
 		}
 	}
