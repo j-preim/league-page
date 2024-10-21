@@ -72,8 +72,8 @@ const processScores = (inputScores, week) => {
 	}
 	const scores = {};
 	for(const score of inputScores) {
-		if(!scores) {
-			scores = [];
+		if(!scores[score.matchup_id]) {
+			scores[score.matchup_id] = [];
 		}
 		scores.push({
 			roster_id: score.roster_id,
@@ -81,6 +81,6 @@ const processScores = (inputScores, week) => {
 			points: score.starters_points,
 		})
 	}
-	console.log(scores);
+	console.log
 	return {scores, week};
 }
