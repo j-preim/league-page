@@ -34,6 +34,12 @@
       "url": "/matchups"
     },
     {
+      "name": "Scores",
+      "short_name": "Scores",
+      "description": "View league scores",
+      "url": "/scores"
+    },
+    {
       "name": "Rosters",
       "short_name": "Rosters",
       "description": "View league rosters",
