@@ -22,11 +22,6 @@ export const tabs = [
         dest: '/transactions',
     },
     {
-        icon: 'article',
-        label: 'Blog',
-        dest: '/blog',
-    },
-    {
         icon: 'view_comfy',
         label: 'League Info',
         nest: true,
