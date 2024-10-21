@@ -5,28 +5,45 @@
     export let score, players, active, ix, displayWeek, expandOverride=false, scoreWeek, leagueTeamManagers, year;
 
     let home = score[0];
+    let away = score[1];
 
     let homePointsTotal = 0;
     let homeProjectionTotal = 0;
+    let awayPointsTotal = 0;
+    let awayProjectionTotal = 0;
 
     let winning = "home";
 
     const digestStarters = (x, p) => {
         home = score[0];
+        away = score[1];
         home.manager = getTeamFromTeamManagers(leagueTeamManagers, home.roster_id, year);
+        away.manager = getTeamFromTeamManagers(leagueTeamManagers, away.roster_id, year);
         const homeStarters = scoreWeek ? home.starters[scoreWeek] : home.starters;
+        const awayStarters = scoreWeek ? away.starters[scoreWeek] : away.starters;
         const homePoints = scoreWeek ? home.points[scoreWeek] : home.points;
+        const awayPoints = scoreWeek ? away.points[scoreWeek] : away.points;
 
         homePointsTotal = 0;
         homeProjectionTotal = 0;
+        awayPointsTotal = 0;
+        awayProjectionTotal = 0;
 
         const localStarters = [];
         for(let i = 0; i < homeStarters.length; i++) {
             homePointsTotal += homePoints[i];
+            const awayPoint = awayPoints ? awayPoints[i] : 0;
+            awayPointsTotal += awayPoint;
             const home = digestStarter(homeStarters[i], homePoints[i]);
+            const awayStarter = awayStarters ? awayStarters[i] : null;
+            const away = digestStarter(awayStarter, awayPoint);
             homeProjectionTotal += home.projection;
-            localStarters.push({home});
+            awayProjectionTotal += away ? away.projection : 0;
+            localStarters.push({home, away});
         }
+        if(awayPointsTotal < homePointsTotal) winning = "home";
+        if(awayPointsTotal > homePointsTotal) winning = "away";
+        if(awayPointsTotal == homePointsTotal) winning = "tied";
         starters = localStarters;
     }
 
@@ -470,6 +487,12 @@
             <div class="name">{home.manager.name}</div>
             <div class="totalPoints totalPointsR">{round(homePointsTotal)}<div class="totalProjection">{round(homeProjectionTotal)}</div></div>
         </div>
+        <!-- <img class="divider" src="/{winning}Divider.jpg" alt="divider" /> -->
+        <div class="opponent away{winning == "away" ? " awayGlow" : ""}">
+            <img class="avatar" src={away.manager.avatar} alt="away team avatar" />
+            <div class="name" >{away.manager.name}</div>
+            <div class="totalPoints totalPointsL">{round(awayPointsTotal)}<div class="totalProjection">{round(awayProjectionTotal)}</div></div>
+        </div>
     </div>
 
     <div class="rosters" style="max-height: {active == ix ? calcHeight() + "px" : "0"}; {active != ix ? "border: none" : ""};">
@@ -500,10 +523,38 @@
                     </div>
                     <span class="points pointsR">{round(player.home.points)}<div class="totalProjection">{round(player.home.projection)}</div></span>
                 </div>
+
+                <div class="dividerLine" />
+
+                <div class="player playerAway">
+                    <span class="iconAndTeam iconAndTeamAway">
+                        {#if player.away.pos}
+                            <span class="pos {player.away.pos}">{player.away.pos}</span>
+                        {/if}
+                        {#if player.away.avatar}
+                            <div class="playerAvatar playerInfo" style="{player.away.avatar}">
+                                {#if player.away.team && player.away.pos != "DEF"}
+                                    <img src="https://sleepercdn.com/images/team_logos/nfl/{player.away.team.toLowerCase()}.png" class="teamLogo teamAwayLogo" alt="team logo"/>
+                                {/if}
+                            </div>
+                        {/if}
+                    </span>
+                    <div class="nameHolder nameHolderL{player.away.name == 'Empty'? ' playerEmpty' : ''}">
+                        <span class="playerInfo playerName playerNameAway">{player.away.name}</span>
+                        {#if player.away.team}
+                            {#if player.away.opponent}
+                                <div class="playerTeam">{player.away.opponent} vs{player.away.pos != "DEF" ? ` ${player.away.team}` : ""}</div>
+                            {:else}
+                                <div class="playerTeam">{player.away.pos != "DEF" ? player.away.team : ""}</div>
+                            {/if}
+                        {/if}
+                    </div>
+                    <span class="points pointsR">{round(player.away.points)}<div class="totalProjection">{round(player.away.projection)}</div></span>
+                </div>
             </div>
         {/each}
         {#if !expandOverride}
-            <div class="close" on:click={() => expandClose()}>Close Roster</div>
+            <div class="close" on:click={() => expandClose()}>Close Matchup</div>
         {/if}
     </div>
 </div>
