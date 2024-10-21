@@ -2,19 +2,17 @@
 <script>
 	import LinearProgress from '@smui/linear-progress';
 	import ScoreWeeks from './ScoreWeeks.svelte';
-    import Button, { Group, Label } from '@smui/button';
     import { goto } from '$app/navigation';
     import { onMount } from 'svelte';
     import { loadPlayers } from '$lib/utils/helper';
 
-	export let queryWeek, leagueTeamManagersData, scoresData, bracketsData, playersData;
+	export let queryWeek, leagueTeamManagersData, scoresData, playersData;
 
     let players, scoreWeeks, year, week, regularSeasonLength, brackets, leagueTeamManagers;
 
     let loading = true;
 
     onMount(async () => {
-        brackets = await bracketsData;
         const scoresInfo = await scoresData;
         leagueTeamManagers = await leagueTeamManagersData;
         scoreWeeks = scoresInfo.scoreWeeks;
@@ -51,13 +49,6 @@
         width: 85%;
         max-width: 500px;
         margin: 80px auto;
-    }
-
-    .buttonHolder {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        margin: 3em 0;
     }
 </style>
 
