@@ -419,9 +419,12 @@
     .totalPoints {
         line-height: 1.1em;
         color: #fff;
+        padding-top: .1em;
+        margin-right: 0.1em;
+        text-align: right;
     }
 
-    .totalPointsR {
+    /* .totalPointsR {
         margin-right: 0.1em;
         text-align: right;
     }
@@ -429,12 +432,14 @@
     .totalPointsL {
         margin-left: 0.1em;
         text-align: left;
-    }
+    } */
 
     .totalProjection {
         color: #ccc;
         font-size: 0.7em;
         font-style: italic;
+        margin-right: .1em;
+        margin-top: .2em;
     }
 
     .points {
@@ -487,13 +492,13 @@
         <div class="opponent home{winning == "home" ? " homeGlowOLD" : ""}">
             <img class="avatar" src={home.manager.avatar} alt="home team avatar" />
             <div class="name">{home.manager.name}</div>
-            <div class="totalPoints totalPointsR">{round(homePointsTotal)}<div class="totalProjection">{round(homeProjectionTotal)}</div></div>
+            <div class="totalPoints">{round(homePointsTotal)}<div class="totalProjection">{round(homeProjectionTotal)}</div></div>
         </div>
         <!-- <img class="divider" src="/{winning}Divider.jpg" alt="divider" /> -->
         <div class="opponent away{winning == "away" ? " awayGlowOLD" : ""}">
             <img class="avatar" src={away.manager.avatar} alt="away team avatar" />
             <div class="name" >{away.manager.name}</div>
-            <div class="totalPoints totalPointsL">{round(awayPointsTotal)}<div class="totalProjection">{round(awayProjectionTotal)}</div></div>
+            <div class="totalPoints">{round(awayPointsTotal)}<div class="totalProjection">{round(awayProjectionTotal)}</div></div>
         </div>
     </div>
 
