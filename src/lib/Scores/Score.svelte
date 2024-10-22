@@ -488,16 +488,14 @@
 </style>
 
 <div class="score">
-    <div class="header">
-        <div class="opponent home{winning == "home" ? " homeGlowOLD" : ""}" on:click={() => expandClose()} bind:this={el} >
+    <div class="header" on:click={() => expandClose()} bind:this={el} >
+        <div class="opponent home{winning == "home" ? " homeGlowOLD" : ""}">
             <img class="avatar" src={home.manager.avatar} alt="home team avatar" />
             <div class="name">{home.manager.name}</div>
             <div class="totalPoints">{round(homePointsTotal)}<div class="totalProjection">{round(homeProjectionTotal)}</div></div>
         </div>
-    </div>
 
-    <div class="header">
-        <div class="opponent away{winning == "away" ? " awayGlowOLD" : ""}" on:click={() => expandClose()} bind:this={el} >
+        <div class="opponent away{winning == "away" ? " awayGlowOLD" : ""}">
             <img class="avatar" src={away.manager.avatar} alt="away team avatar" />
             <div class="name" >{away.manager.name}</div>
             <div class="totalPoints">{round(awayPointsTotal)}<div class="totalProjection">{round(awayProjectionTotal)}</div></div>
@@ -532,24 +530,9 @@
                     </div>
                     <span class="points pointsR">{round(player.home.points)}<div class="totalProjection">{round(player.home.projection)}</div></span>
                 </div>
-            </div>
-        {/each}
-        {#if !expandOverride}
-            <div class="close" on:click={() => expandClose()}>Close Roster</div>
-        {/if}
-    </div>
 
-    <div class="header">
-        <div class="opponent away{winning == "away" ? " awayGlowOLD" : ""}" on:click={() => expandClose()} bind:this={el} >
-            <img class="avatar" src={away.manager.avatar} alt="away team avatar" />
-            <div class="name" >{away.manager.name}</div>
-            <div class="totalPoints">{round(awayPointsTotal)}<div class="totalProjection">{round(awayProjectionTotal)}</div></div>
-        </div>
-    </div>
+                <!-- <div class="dividerLine" /> -->
 
-    <div class="rosters" style="max-height: {active == ix ? calcHeight() + "px" : "0"}; {active != ix ? "border: none" : ""};">
-        {#each starters as player}
-            <div class="line">
                 <div class="player playerAway">
                     <span class="iconAndTeam iconAndTeamAway">
                         {#if player.away.pos}
@@ -578,7 +561,7 @@
             </div>
         {/each}
         {#if !expandOverride}
-            <div class="close" on:click={() => expandClose()}>Close Roster</div>
+            <div class="close" on:click={() => expandClose()}>Close Matchup</div>
         {/if}
     </div>
 </div>
