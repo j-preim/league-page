@@ -488,13 +488,13 @@
 </style>
 
 <div class="score">
-    <div class="header" on:click={() => expandClose()} bind:this={el} >
-        <div class="opponent home{winning == "home" ? " homeGlowOLD" : ""}">
+    <div class="header">
+        <div class="opponent home{winning == "home" ? " homeGlowOLD" : ""}" on:click={() => expandClose()} bind:this={el} >
             <img class="avatar" src={home.manager.avatar} alt="home team avatar" />
             <div class="name">{home.manager.name}</div>
             <div class="totalPoints">{round(homePointsTotal)}<div class="totalProjection">{round(homeProjectionTotal)}</div></div>
         </div>
-        <!-- <img class="divider" src="/{winning}Divider.jpg" alt="divider" /> -->
+
         <div class="opponent away{winning == "away" ? " awayGlowOLD" : ""}">
             <img class="avatar" src={away.manager.avatar} alt="away team avatar" />
             <div class="name" >{away.manager.name}</div>
@@ -531,7 +531,7 @@
                     <span class="points pointsR">{round(player.home.points)}<div class="totalProjection">{round(player.home.projection)}</div></span>
                 </div>
 
-                <div class="dividerLine" />
+                <!-- <div class="dividerLine" /> -->
 
                 <div class="player playerAway">
                     <span class="iconAndTeam iconAndTeamAway">
