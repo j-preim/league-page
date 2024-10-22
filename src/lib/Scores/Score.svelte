@@ -113,8 +113,8 @@
 
 <style>
     .score {
-        width: 95%;
-        max-width: 800px;
+        width: 60%;
+        max-width: 600px;
         margin: 10px auto;
     }
 
@@ -126,6 +126,7 @@
         cursor: pointer;
 		transition: opacity 0.5s;
         overflow: hidden;
+        flex-wrap: wrap;
     }
 
     .header:hover {
@@ -135,11 +136,11 @@
     .opponent {
         display: flex;
         align-items: center;
-        width: 46%;
+        width: 100%;
         padding: 5px 2%;
         top: 0;
         z-index: 2;
-        border: 1px solid #bbb;
+        border: 2px solid #bbb;
         border-radius: 10px;
     }
 
