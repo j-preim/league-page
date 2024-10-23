@@ -12,14 +12,14 @@ export const tabs = [
         dest: '/matchups',
     },
     {
+        icon: 'sports',
+        label: 'Scores',
+        dest: '/scores',
+    },
+    {
         icon: 'swap_horiz',
         label: 'Trades & Waivers',
         dest: '/transactions',
-    },
-    {
-        icon: 'article',
-        label: 'Blog',
-        dest: '/blog',
     },
     {
         icon: 'view_comfy',

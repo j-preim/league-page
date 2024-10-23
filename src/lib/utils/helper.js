@@ -5,6 +5,7 @@ import {getNflState} from './helperFunctions/nflState';
 import {getLeagueRosters} from './helperFunctions/leagueRosters';
 import {getLeagueTeamManagers} from './helperFunctions/leagueTeamManagers';
 import {getLeagueMatchups} from './helperFunctions/leagueMatchups'
+import {getLeagueScores} from './helperFunctions/leagueScores'
 import {getRivalryMatchups} from './helperFunctions/rivalryMatchups'
 import {getNews, stringDate} from './helperFunctions/news';
 import {loadPlayers} from './helperFunctions/players';
@@ -29,6 +30,7 @@ export {
     getLeagueRosters,
     getLeagueTeamManagers,
     getLeagueMatchups,
+    getLeagueScores,
     getRivalryMatchups,
     getNews,
     loadPlayers,

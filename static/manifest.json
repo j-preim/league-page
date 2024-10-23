@@ -34,6 +34,12 @@
       "url": "/matchups"
     },
     {
+      "name": "Scores",
+      "short_name": "Scores",
+      "description": "View league scores",
+      "url": "/scores"
+    },
+    {
       "name": "Rosters",
       "short_name": "Rosters",
       "description": "View league rosters",
@@ -44,18 +50,6 @@
       "short_name": "Drafts",
       "description": "View league upcoming and past drafts",
       "url": "/drafts"
-    },
-    {
-      "name": "Trophy Room",
-      "short_name": "Trophy Room",
-      "description": "View the managers' past awards and accomplishments",
-      "url": "/awards"
-    },
-    {
-      "name": "Resources & News",
-      "short_name": "Resources",
-      "description": "View fantasy football resources and news",
-      "url": "/resources"
     }
   ],
   "description": "Information about the League"

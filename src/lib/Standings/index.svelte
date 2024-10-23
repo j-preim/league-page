@@ -10,10 +10,10 @@
 
     // Least important to most important (i.e. the most important [usually wins] goes last)
     // Edit this to match your leagues settings
-    const sortOrder = ["fptsAgainst", "wins", "fpts"];
+    const sortOrder = ["budget", "fpts"];
 
     // Column order from left to right
-    const columnOrder = [{name: "FPTS", field: "fpts"}, {name: "W", field: "wins"}, {name: "L", field: "losses"}, {name: "FPTS Against", field: "fptsAgainst"}]
+    const columnOrder = [{name: "Total Points", field: "fpts"}, {name: "Budget", field: "budget"}, {name: "Chopped", field: "chopped"}]
 
     let loading = true;
     let preseason = false;
@@ -104,7 +104,9 @@
             <Body>
                 <!-- 	Standing	 -->
                 {#each standings as standing}
+                <!-- {#if !standing.chopped} -->
                     <Standing {columnOrder} {standing} {leagueTeamManagers} team={getTeamFromTeamManagers(leagueTeamManagers, standing.rosterID)} />
+                <!-- {/if} -->
                 {/each}
             </Body>
         </DataTable>

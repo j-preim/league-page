@@ -2,10 +2,10 @@
     import {round} from '$lib/utils/helper'
 	import { getTeamFromTeamManagers } from '$lib/utils/helperFunctions/universalFunctions';
 
-    export let matchup, players, active, ix, displayWeek, expandOverride=false, matchupWeek, leagueTeamManagers, year;
+    export let score, players, active, ix, displayWeek, expandOverride=false, scoreWeek, leagueTeamManagers, year;
 
-    let home = matchup[0];
-    let away = matchup[1];
+    let home = score[0];
+    let away = score[1];
 
     let homePointsTotal = 0;
     let homeProjectionTotal = 0;
@@ -15,14 +15,14 @@
     let winning = "home";
 
     const digestStarters = (x, p) => {
-        home = matchup[0];
-        away = matchup[1];
+        home = score[0];
+        away = score[1];
         home.manager = getTeamFromTeamManagers(leagueTeamManagers, home.roster_id, year);
         away.manager = getTeamFromTeamManagers(leagueTeamManagers, away.roster_id, year);
-        const homeStarters = matchupWeek ? home.starters[matchupWeek] : home.starters;
-        const awayStarters = matchupWeek ? away.starters[matchupWeek] : away.starters;
-        const homePoints = matchupWeek ? home.points[matchupWeek] : home.points;
-        const awayPoints = matchupWeek ? away.points[matchupWeek] : away.points;
+        const homeStarters = scoreWeek ? home.starters[scoreWeek] : home.starters;
+        const awayStarters = scoreWeek ? away.starters[scoreWeek] : away.starters;
+        const homePoints = scoreWeek ? home.points[scoreWeek] : home.points;
+        const awayPoints = scoreWeek ? away.points[scoreWeek] : away.points;
 
         homePointsTotal = 0;
         homeProjectionTotal = 0;
@@ -78,7 +78,7 @@
 
     let starters;
     
-    $: digestStarters(ix, players, matchupWeek);
+    $: digestStarters(ix, players, scoreWeek);
 
     let el;
 
@@ -103,7 +103,7 @@
         if(innerWidth < 410) {
             multiplier = 71;
         }
-        const startersLength = matchupWeek ? home.starters[matchupWeek].length : home.starters.length;
+        const startersLength = scoreWeek ? home.starters[scoreWeek].length : home.starters.length;
         return startersLength * multiplier + 37;
     }
 
@@ -112,10 +112,10 @@
 <svelte:window bind:innerWidth={innerWidth} />
 
 <style>
-    .matchup {
-        width: 95%;
-        max-width: 800px;
-        margin: 10px auto;
+    .score {
+        width: 60%;
+        max-width: 600px;
+        margin: 0px auto;
     }
 
     .header {
@@ -126,6 +126,7 @@
         cursor: pointer;
 		transition: opacity 0.5s;
         overflow: hidden;
+        flex-wrap: wrap;
     }
 
     .header:hover {
@@ -135,12 +136,13 @@
     .opponent {
         display: flex;
         align-items: center;
-        width: 46%;
+        width: 100%;
         padding: 5px 2%;
         top: 0;
         z-index: 2;
-        border: 1px solid #bbb;
+        border: 2px solid #bbb;
         border-radius: 10px;
+        margin: 10px;
     }
 
     .divider {
@@ -417,9 +419,12 @@
     .totalPoints {
         line-height: 1.1em;
         color: #fff;
+        padding-top: .1em;
+        margin-right: 0.1em;
+        text-align: right;
     }
 
-    .totalPointsR {
+    /* .totalPointsR {
         margin-right: 0.1em;
         text-align: right;
     }
@@ -427,12 +432,14 @@
     .totalPointsL {
         margin-left: 0.1em;
         text-align: left;
-    }
+    } */
 
     .totalProjection {
         color: #ccc;
         font-size: 0.7em;
         font-style: italic;
+        margin-right: .1em;
+        margin-top: .2em;
     }
 
     .points {
@@ -480,18 +487,18 @@
     }
 </style>
 
-<div class="matchup">
+<div class="score">
     <div class="header" on:click={() => expandClose()} bind:this={el} >
-        <div class="opponent home{winning == "home" ? " homeGlow" : ""}">
+        <div class="opponent home{winning == "home" ? " homeGlowOLD" : ""}">
             <img class="avatar" src={home.manager.avatar} alt="home team avatar" />
             <div class="name">{home.manager.name}</div>
-            <div class="totalPoints totalPointsR">{round(homePointsTotal)}<div class="totalProjection">{round(homeProjectionTotal)}</div></div>
+            <div class="totalPoints">{round(homePointsTotal)}<div class="totalProjection">{round(homeProjectionTotal)}</div></div>
         </div>
-        <!-- <img class="divider" src="/{winning}Divider.jpg" alt="divider" /> -->
-        <div class="opponent away{winning == "away" ? " awayGlow" : ""}">
+
+        <div class="opponent away{winning == "away" ? " awayGlowOLD" : ""}">
             <img class="avatar" src={away.manager.avatar} alt="away team avatar" />
             <div class="name" >{away.manager.name}</div>
-            <div class="totalPoints totalPointsL">{round(awayPointsTotal)}<div class="totalProjection">{round(awayProjectionTotal)}</div></div>
+            <div class="totalPoints">{round(awayPointsTotal)}<div class="totalProjection">{round(awayProjectionTotal)}</div></div>
         </div>
     </div>
 
@@ -524,7 +531,7 @@
                     <span class="points pointsR">{round(player.home.points)}<div class="totalProjection">{round(player.home.projection)}</div></span>
                 </div>
 
-                <div class="dividerLine" />
+                <!-- <div class="dividerLine" /> -->
 
                 <div class="player playerAway">
                     <span class="iconAndTeam iconAndTeamAway">

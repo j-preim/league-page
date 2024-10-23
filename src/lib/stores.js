@@ -5,6 +5,7 @@ export const leagueData = writable({});
 export const upcomingDraft = writable({});
 export const previousDrafts = writable([]);
 export const matchupsStore = writable({});
+export const scoresStore = writable({});
 export const records = writable({});
 export const rostersStore = writable({});
 export const transactionsStore = writable({});
