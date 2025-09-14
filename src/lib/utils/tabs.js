@@ -17,9 +17,9 @@ export const tabs = [
         dest: '/scores',
     },
     {
-        icon: 'groups',
-        label: 'Managers',
-        dest: '/managers',
+        icon: 'leaderboard',
+        label: 'Standings',
+        dest: '/standings',
     },
     {
         icon: 'view_comfy',
@@ -37,9 +37,9 @@ export const tabs = [
                 dest: '/transactions',
             },
             {
-                icon: 'leaderboard',
-                label: 'Standings',
-                dest: '/standings',
+                icon: 'groups',
+                label: 'Managers',
+                dest: '/managers',
             },
             {
                 icon: 'view_comfy',
