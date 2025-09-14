@@ -17,9 +17,9 @@ export const tabs = [
         dest: '/scores',
     },
     {
-        icon: 'swap_horiz',
-        label: 'Trades & Waivers',
-        dest: '/transactions',
+        icon: 'leaderboard',
+        label: 'Standings',
+        dest: '/standings',
     },
     {
         icon: 'view_comfy',
@@ -32,14 +32,14 @@ export const tabs = [
                 dest: '/rosters',
             },
             {
+                icon: 'swap_horiz',
+                label: 'Trades & Waivers',
+                dest: '/transactions',
+            },
+            {
                 icon: 'groups',
                 label: 'Managers',
                 dest: '/managers',
-            },
-            {
-                icon: 'leaderboard',
-                label: 'Standings',
-                dest: '/standings',
             },
             {
                 icon: 'view_comfy',
