@@ -495,12 +495,12 @@
             <div class="totalPoints">{round(homePointsTotal)}<div class="totalProjection">{round(homeProjectionTotal)}</div></div>
         </div>
 
-        <div class="opponent away{winning == "away" ? " awayGlowOLD" : ""}">
+        <!-- <div class="opponent away{winning == "away" ? " awayGlowOLD" : ""}">
             <img class="avatar" src={away.manager.avatar} alt="away team avatar" />
             <div class="name" >{away.manager.name}</div>
             <div class="totalPoints">{round(awayPointsTotal)}<div class="totalProjection">{round(awayProjectionTotal)}</div></div>
         </div>
-    </div>
+    </div> -->
 
     <div class="rosters" style="max-height: {active == ix ? calcHeight() + "px" : "0"}; {active != ix ? "border: none" : ""};">
         {#each starters as player}
@@ -533,7 +533,7 @@
 
                 <!-- <div class="dividerLine" /> -->
 
-                <div class="player playerAway">
+                <!-- <div class="player playerAway">
                     <span class="iconAndTeam iconAndTeamAway">
                         {#if player.away.pos}
                             <span class="pos {player.away.pos}">{player.away.pos}</span>
@@ -557,7 +557,7 @@
                         {/if}
                     </div>
                     <span class="points pointsR">{round(player.away.points)}<div class="totalProjection">{round(player.away.projection)}</div></span>
-                </div>
+                </div> -->
             </div>
         {/each}
         {#if !expandOverride}
