@@ -533,7 +533,7 @@
 
                 <!-- <div class="dividerLine" /> -->
 
-                <!-- <div class="player playerAway">
+                <div class="player playerAway">
                     <span class="iconAndTeam iconAndTeamAway">
                         {#if player.away.pos}
                             <span class="pos {player.away.pos}">{player.away.pos}</span>
@@ -557,7 +557,7 @@
                         {/if}
                     </div>
                     <span class="points pointsR">{round(player.away.points)}<div class="totalProjection">{round(player.away.projection)}</div></span>
-                </div> -->
+                </div>
             </div>
         {/each}
         {#if !expandOverride}

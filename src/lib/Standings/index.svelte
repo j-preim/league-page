@@ -6,7 +6,73 @@
     import { onMount } from 'svelte';
     import Standing from './Standing.svelte';
 
-    export let standingsData, leagueTeamManagersData;
+    export let standingsData, leagueTeamManagersData, score, players, ix, displayWeek, scoreWeek, scoreYear;
+
+    let pointsTotal = 0;
+
+    const digestStarters = (x, p) => {
+        manager = getTeamFromTeamManagers(leagueTeamManagers, roster_id, year);
+        const starters = scoreWeek ? starters[scoreWeek] : starters;
+        const points = scoreWeek ? points[scoreWeek] : points;
+
+        pointsTotal = 0;
+        projectionTotal = 0;
+
+        const localStarters = [];
+        for(let i = 0; i < starters.length; i++) {
+            pointsTotal += points[i];
+            const home = digestStarter(starters[i], points[i]);
+            projectionTotal += projection;
+            localStarters.push({home});
+        }
+        // starters = localStarters;
+    }
+
+    const digestStarter = (starter, points) => {
+        if(!starter || starter == 0) {
+                return {
+                    name: "Empty",
+                    avatar: null,
+                    poss: null,
+                    team: null,
+                    opponent: null,
+                    projection: 0,
+                    points: 0,
+                };
+            }
+            const player = players[starter];
+            let name = player.pos == "DEF" ? player.ln : `${player.fn[0]}. ${player.ln}`;
+            let projection = 0;
+            if(player.wi && player.wi[displayWeek]) {
+                projection = parseFloat(player.wi[displayWeek].p);
+            }
+            return {
+                name,
+                avatar: player.pos == "DEF" ? `background-image: url(https://sleepercdn.com/images/team_logos/nfl/${starter.toLowerCase()}.png)` : `background-image: url(https://sleepercdn.com/content/nfl/players/thumb/${starter}.jpg), url(https://sleepercdn.com/images/v2/icons/player_default.webp)`,
+                pos: player.pos,
+                team: player.t,
+                opponent: player.wi && player.wi[displayWeek] ? player.wi[displayWeek].o : null,
+                projection,
+                points,
+            };
+    }
+
+    let starters;
+    
+    $: digestStarters(ix, players, scoreWeek);
+
+    let el;
+
+    $: top = el?.getBoundingClientRect() ? el?.getBoundingClientRect().top  : 0;
+
+    const expandClose = () => {
+        if(expandOverride) return;
+        active = active == ix ? null : ix;
+        setTimeout( () => {
+            window.scrollTo({left: 0, top, behavior: 'smooth'});
+        }, 200);
+        ;
+    }
 
     // Least important to most important (i.e. the most important [usually wins] goes last)
     // Edit this to match your leagues settings
