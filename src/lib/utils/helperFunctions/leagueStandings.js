@@ -2,7 +2,6 @@ import { leagueID } from '$lib/utils/leagueInfo';
 import { getNflState } from "./nflState"
 import { getLeagueData } from "./leagueData"
 import { getLeagueRosters } from "./leagueRosters"
-import { getLeagueScores } from './leagueScores';
 import { waitForAll } from './multiPromise';
 import { get } from 'svelte/store';
 import {standingsStore} from '$lib/stores';
@@ -13,19 +12,16 @@ export const getLeagueStandings = async () => {
 		return get(standingsStore);
 	}
 
-	const [nflState, leagueData, rostersData, scoresData] = await waitForAll(
+	const [nflState, leagueData, rostersData] = await waitForAll(
 		getNflState(),
 		getLeagueData(),
 		getLeagueRosters(),
-        getLeagueScores(),
 	).catch((err) => { console.error(err); });
 
 	const yearData = leagueData.season;
 	const regularSeasonLength = leagueData.settings.playoff_week_start - 1;
 	const divisions = leagueData.settings.divisions && leagueData.settings.divisions > 1;
     const rosters = rostersData.rosters;
-    const scores = scoresData;
-    console.log(scoresData);
 
 	// if the season hasn't started, standings can't be created
 	if((leagueData.status != "in_season" && leagueData.status != "post_season" && leagueData.status != "complete") || nflState.week < 1) {
