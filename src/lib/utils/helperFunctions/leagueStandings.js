@@ -19,6 +19,7 @@ export const getLeagueStandings = async () => {
 	).catch((err) => { console.error(err); });
 
 	const yearData = leagueData.season;
+    const currentWeek = leagueData.week;
 	const regularSeasonLength = leagueData.settings.playoff_week_start - 1;
 	const divisions = leagueData.settings.divisions && leagueData.settings.divisions > 1;
     const rosters = rostersData.rosters;
@@ -47,7 +48,7 @@ export const getLeagueStandings = async () => {
         }
     }
 
-    if(divisions) {
+    //if(divisions) {
         let week = 0;
         if(nflState.season_type == 'regular') {
             // max the week out at end of regular season
@@ -83,16 +84,49 @@ export const getLeagueStandings = async () => {
         for(const matchup of matchupsData) {
             standings = processStandings(matchup, standings, rosters);
         }
-    }
+
+        const scoreWeeks = [];
+	    // process all the scores
+        for(let i = 1; i < scoresData.length + 1; i++) {
+            const processed = processScores(scoresData[i - 1], i);
+            if(processed) {
+                scoreWeeks.push({
+                    scores: processed.scores,
+                    week: processed.week
+                });
+		    }
+        }
+    //}
 
 	const response = {
 		standingsInfo: standings,
 		yearData,
+        scoreWeeks,
+        week,
 	}
 	
 	standingsStore.update(() => response);
 
 	return response;
+}
+
+const processScores = (inputScores, week) => {
+	if(!inputScores || inputScores.length == 0) {
+		return false;
+	}
+	const scores = {};
+	for(const score of inputScores) {
+		if(!scores[score.matchup_id]) {
+			scores[score.matchup_id] = [];
+		}
+		scores[score.matchup_id].push({
+			roster_id: score.roster_id,
+			starters: score.starters,
+			points: score.starters_points,
+		})
+	}
+	console.log
+	return {scores, week};
 }
 
 const processStandings = (matchup, standingsData, rosters) => {
