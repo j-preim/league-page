@@ -28,12 +28,14 @@
 </style>
 
 <Row class="contrastRow">
-    <Cell class="">
+    <Cell class=''>
         <div class="team">
             <img alt="team avatar" class="teamAvatar" src="{team.avatar}" />
-            <!-- <div> -->
-                {team.name}
-            <!-- </div> -->
+        </div>
+    </Cell>
+    <Cell class="">
+        <div class="team">
+            {team.name}
         </div>
     </Cell>
     {#each columnOrder as column}
