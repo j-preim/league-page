@@ -88,7 +88,7 @@ export const getLeagueStandings = async () => {
         const scoreWeeks = [];
 	    // process all the scores
         for(let i = 1; i < scoresData.length + 1; i++) {
-            const processed = processScores(scoresData[i - 1], i);
+            const processed = processScores(matchupsData[i - 1], i);
             if(processed) {
                 scoreWeeks.push({
                     scores: processed.scores,
