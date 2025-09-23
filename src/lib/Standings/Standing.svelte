@@ -23,7 +23,7 @@
     }
 
     .team {
-        text-align: center;
+        text-align: left;
     }
 </style>
 
