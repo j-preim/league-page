@@ -23,6 +23,22 @@ export const getLeagueStandings = async () => {
 	const divisions = leagueData.settings.divisions && leagueData.settings.divisions > 1;
     const rosters = rostersData.rosters;
 
+    // Fetch current week matchups to get up-to-date points
+    let currentWeekPoints = {};
+    try {
+        const currentWeekMatchupsRes = await fetch(`https://api.sleeper.app/v1/league/${leagueID}/matchups/${nflState.week}`);
+        if (currentWeekMatchupsRes.ok) {
+            const currentWeekMatchups = await currentWeekMatchupsRes.json();
+            for (const match of currentWeekMatchups) {
+                if (match.roster_id !== null && match.points !== null) {
+                    currentWeekPoints[match.roster_id] = match.points;
+                }
+            }
+        }
+    } catch (err) {
+        console.error("Failed to fetch current week matchups:", err);
+    }
+
 	// if the season hasn't started, standings can't be created
 	if((leagueData.status != "in_season" && leagueData.status != "post_season" && leagueData.status != "complete") || nflState.week < 1) {
 		return null;
@@ -36,7 +52,11 @@ export const getLeagueStandings = async () => {
             wins: roster.settings.wins,
             losses: roster.settings.losses,
             ties: roster.settings.ties,
-            fpts: round(roster.settings.fpts + (roster.settings.fpts_decimal / 100)),
+            fpts: round(
+	            roster.settings.fpts + 
+	            (roster.settings.fpts_decimal / 100) + 
+	            (currentWeekPoints[roster.roster_id] ?? 0)
+            ),
             fptsAgainst: round(roster.settings.fpts_against + (roster.settings.fpts_against_decimal / 100)),
             streak: roster.metadata?.streak || 0,
             divisionWins: divisions ? 0 : null,
