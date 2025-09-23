@@ -78,6 +78,7 @@
 
     :global(.left) {
         text-align: left;
+        margin-left: 55px;
     }
 
     :global(.center) {
