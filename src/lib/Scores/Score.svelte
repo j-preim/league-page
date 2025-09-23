@@ -495,11 +495,11 @@
             <div class="totalPoints">{round(homePointsTotal)}<div class="totalProjection">{round(homeProjectionTotal)}</div></div>
         </div>
 
-        <!-- <div class="opponent away{winning == "away" ? " awayGlowOLD" : ""}">
+        <div class="opponent away{winning == "away" ? " awayGlowOLD" : ""}">
             <img class="avatar" src={away.manager.avatar} alt="away team avatar" />
             <div class="name" >{away.manager.name}</div>
             <div class="totalPoints">{round(awayPointsTotal)}<div class="totalProjection">{round(awayProjectionTotal)}</div></div>
-        </div> -->
+        </div>
     </div>
 
     <div class="rosters" style="max-height: {active == ix ? calcHeight() + "px" : "0"}; {active != ix ? "border: none" : ""};">
