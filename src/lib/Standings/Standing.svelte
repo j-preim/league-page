@@ -30,10 +30,10 @@
 <Row class="contrastRow">
     <Cell class="">
         <div class="team">
-            <img alt="team avatar" class="teamAvatar clickable" src="{team.avatar}" />
-            <div>
+            <img alt="team avatar" class="teamAvatar" src="{team.avatar}" />
+            <!-- <div> -->
                 {team.name}
-            </div>
+            <!-- </div> -->
         </div>
     </Cell>
     {#each columnOrder as column}
