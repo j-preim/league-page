@@ -48,7 +48,7 @@ export const getLeagueStandings = async () => {
         }
     }
 
-    //if(divisions) {
+    if(divisions) {
         let week = 0;
         if(nflState.season_type == 'regular') {
             // max the week out at end of regular season
@@ -96,7 +96,7 @@ export const getLeagueStandings = async () => {
                 });
 		    }
         }
-    //}
+    }
 
 	const response = {
 		standingsInfo: standings,
