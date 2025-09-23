@@ -76,6 +76,10 @@
         margin: 80px auto;
     }
 
+    :global(.left) {
+        text-align: left;
+    }
+
     :global(.center) {
         text-align: center;
     }
@@ -115,7 +119,7 @@
         <DataTable table$aria-label="League Standings" >
             <Head> <!-- Team name  -->
                 <Row>
-                    <Cell class="center">Team</Cell>
+                    <Cell class="left">Team</Cell>
                     {#each columnOrder as column}
                         <Cell class="center wrappable">{column.name}</Cell>
                     {/each}
