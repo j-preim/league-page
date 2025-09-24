@@ -102,7 +102,7 @@
     }
 </style>
 
-<h1>{year ?? ''} {leagueName} Standings</h1>
+<h1>{year ?? ''} Live Standings</h1>
 
 {#if loading}
     <!-- promise is pending -->
