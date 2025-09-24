@@ -92,7 +92,7 @@
     h1 {
         font-size: 2.2em;
         line-height: 1.3em;
-        margin: 1.5em 0 2em;
+        margin: 1.5em 0 1.5em;
     }
 
     .standingsTable {
