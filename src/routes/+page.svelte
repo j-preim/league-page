@@ -123,9 +123,8 @@
 
     h4 {
         text-align: center;
-        font-size: 1.8em;
-        margin: 10px;
-        font-style: italic;
+        font-size: 2.2em;
+        margin: 15px;
     }
 
     .label {
