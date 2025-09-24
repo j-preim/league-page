@@ -100,7 +100,7 @@
         text-align: center;
         font-size: 2.2em;
         margin: 15px 15px 5px;
-        font-family: fantasy;
+        font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     }
     
 	:global(.curOwner) {
