@@ -55,7 +55,7 @@
 
 <style>
     .matchups {
-        margin: 2em 0 6em;
+        margin: 1.5em 0 6em;
     }
     .weekContainer {
         display: flex;
@@ -83,6 +83,7 @@
         flex-grow: 1;
         text-align: center;
         font-size: 2em;
+        font-weight: 300;
     }
 
     @media (max-width: 800px) {

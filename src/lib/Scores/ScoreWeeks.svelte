@@ -55,7 +55,7 @@
 
 <style>
     .scores {
-        margin: 2em 0 6em;
+        margin: 1.5em 0 6em;
     }
     .weekContainer {
         display: flex;
