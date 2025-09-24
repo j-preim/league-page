@@ -63,7 +63,7 @@ export const getLeagueStandings = async () => {
             divisionLosses: divisions ? 0 : null,
             divisionTies: divisions ? 0 : null,
             budget: `$${200 - roster.settings.waiver_budget_used}`,
-            chopped: roster.players ? "" : "X",
+            chopped: roster.players ? "U+1F52A" : "X",
         }
     }
 
