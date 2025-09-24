@@ -98,11 +98,11 @@
     .standingsTable {
         max-width: 100%;
         overflow-x: scroll;
-        margin: 0.5em 0 5em;
+        margin: 0 0 5em;
     }
 </style>
 
-<h1>{year ?? ''} Live Standings</h1>
+<h1>{year ?? ''} League Standings</h1>
 
 {#if loading}
     <!-- promise is pending -->
