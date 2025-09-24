@@ -97,7 +97,7 @@
 
     .standingsTable {
         max-width: 100%;
-        overflow-x: scroll;
+        overflow-x: auto;
         margin: 0 0 5em;
     }
 </style>
