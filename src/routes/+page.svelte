@@ -116,7 +116,7 @@
             <h4>Welcome to {leagueName}</h4>
             <h5 class="center">CHOP CHOP!</h5>
             <div>
-            <h5 class="center"> On the chopping block:</h5>
+            <h6 class="center"> On the chopping block:</h6>
             </div>
             <!-- homepageText contains the intro text for your league, this gets edited in /src/lib/utils/leagueInfo.js -->
             {@html homepageText }
