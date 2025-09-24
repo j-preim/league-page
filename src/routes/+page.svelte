@@ -124,7 +124,7 @@
     h4 {
         text-align: center;
         font-size: 2.2em;
-        margin: 15px;
+        margin: 15px 15px 5px;
     }
 
     .label {
