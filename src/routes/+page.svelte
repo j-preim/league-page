@@ -81,22 +81,6 @@
         margin-bottom: 1em;
     }
 
-    /* champ styling */
-    #currentChamp {
-        padding: 25px 0;
-		background-color: var(--f3f3f3);
-        box-shadow: 5px 0 8px var(--champShadow);
-        border-left: 1px solid var(--ddd);
-    }
-
-    #champ {
-        position: relative;
-        width: 150px;
-        height: 150px;
-        margin: 0 auto;
-        cursor: pointer;
-    }
-
     .first {
         position: absolute;
         transform: translate(-50%, -50%);
@@ -108,15 +92,6 @@
         top: 43%;
     }
 
-    .laurel {
-        position: absolute;
-        transform: translate(-50%, -50%);
-        width: 135px;
-        height: auto;
-        left: 50%;
-        top: 50%;
-    }
-
     h3 {
         text-align: center;
     }
@@ -125,15 +100,7 @@
         text-align: center;
         font-size: 2.2em;
         margin: 15px 15px 5px;
-    }
-
-    .label {
-        display: table;
-        text-align: center;
-        line-height: 1.1em;
-        font-size: 1.7em;
-        margin: 6px auto 10px;
-        cursor: pointer;
+        font-family: fantasy;
     }
     
 	:global(.curOwner) {
@@ -148,7 +115,9 @@
         <div class="text">
             <h4>Welcome to {leagueName}</h4>
             <h5 class="center">CHOP CHOP!</h5>
+            <div>
             <h5 class="center"> On the chopping block:</h5>
+            </div>
             <!-- homepageText contains the intro text for your league, this gets edited in /src/lib/utils/leagueInfo.js -->
             {@html homepageText }
             <!-- Most recent Blog Post (if enabled) -->
