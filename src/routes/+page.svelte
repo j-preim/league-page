@@ -108,6 +108,10 @@
 		color: #bbb;
 		font-style: italic;
 	}
+
+    .chop {
+        border: 5px solid steelblue;
+    }
 </style>
 
 <div id="home">
@@ -115,7 +119,7 @@
         <div class="text">
             <h4>Welcome to {leagueName}</h4>
             <h5 class="center">CHOP CHOP!</h5>
-            <div>
+            <div class="chop">
             <h6 class="center"> On the chopping block:</h6>
             </div>
             <!-- homepageText contains the intro text for your league, this gets edited in /src/lib/utils/leagueInfo.js -->
