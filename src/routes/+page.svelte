@@ -147,7 +147,7 @@
 <div id="home">
     <div id="main">
         <div class="text">
-            <h3>Welcome to {leagueName}</h3>
+            <h4>Welcome to {leagueName}</h4>
             <h5 class="center">CHOP CHOP!</h5>
             <!-- homepageText contains the intro text for your league, this gets edited in /src/lib/utils/leagueInfo.js -->
             {@html homepageText }
@@ -156,7 +156,7 @@
                 <HomePost />
             {/if}
         </div>
-        <PowerRankings />
+        <!-- <PowerRankings /> -->
     </div>
     
     <div class="leagueData">
@@ -183,7 +183,7 @@
             <Transactions />
         </div>
 
-        <div id="currentChamp">
+        <!-- <div id="currentChamp">
             {#await waitForAll(podiumsData, leagueTeamManagersData)}
                 <p class="center">Retrieving awards...</p>
                 <LinearProgress indeterminate />
@@ -201,6 +201,6 @@
             {:catch error}
                 <p class="center">Something went wrong: {error.message}</p>
             {/await}
-        </div>
+        </div> -->
     </div>
 </div>
