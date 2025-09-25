@@ -38,7 +38,8 @@
         const allScores = score.scores;
         scoreArray = [];
         for (const key in allScores) {
-            scoreArray.push(allScores[key]);
+            scoreArray.push(allScores[key][0]);
+            scoreArray.push(allScores[key][1]);
         }
         rand = Math.random();
     }
