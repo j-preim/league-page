@@ -110,7 +110,7 @@
 	}
 
     .chop {
-        border: 5px solid steelblue;
+        border: 5px solid #0083c3;
     }
 </style>
 
@@ -129,7 +129,7 @@
                 <HomePost />
             {/if}
         </div>
-        <!-- <PowerRankings /> -->
+        <PowerRankings />
     </div>
     
     <div class="leagueData">
