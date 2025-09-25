@@ -270,11 +270,12 @@
     .iconAndTeam {
         display: flex;
         align-items: center;
-    }
-
-    .iconAndTeamHome {
         justify-content: flex-start;
     }
+
+    /* .iconAndTeamHome {
+        justify-content: flex-start;
+    } */
 
     .iconAndTeamAway {
         justify-content: flex-start;
@@ -492,7 +493,7 @@
 
 	<div
 		class="rosters"
-		style="max-height: {active === ix ? `${calcHeight()}px` : '0'}"
+		style="max-height: {active === ix ? calcHeight() + "px" : "0"}; {active != ix ? "border: none" : ""};"
 	>
 		{#each teams as team}
 				<!-- <h4 class="team-block-header">{team.manager.name}</h4> -->
@@ -525,9 +526,9 @@
 								{/if}
 							</div>
 
-								<span class="points pointsR">{player.points}<div class="totalProjection">
+								<span class="points pointsR">{round(player.points)}<div class="totalProjection">
 								{#if player.projection}
-									({player.projection})
+									({round(player.projection)})
 								{/if}
                                 </div></span>
 						</div>
