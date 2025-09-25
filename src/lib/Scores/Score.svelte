@@ -263,6 +263,8 @@
     .player {
         position: relative;
         width: 46%;
+        padding: 0 1.5% 0 2.5%;
+        text-align: left;
     }
 
     .iconAndTeam {
@@ -278,10 +280,10 @@
         justify-content: flex-start;
     }
 
-    .playerHome {
+    /* .playerHome {
         padding: 0 1.5% 0 2.5%;
         text-align: left;
-    }
+    } */
 
     .playerAway {
         padding: 0 1.5% 0 2.5%;
@@ -303,11 +305,12 @@
 
     .playerName {
         word-break: break-word;
-    }
-
-    .playerNameHome {
         text-align: left;
     }
+
+    /* .playerNameHome {
+        text-align: left;
+    } */
 
     .playerNameAway {
         text-align: left;
@@ -439,18 +442,22 @@
         display: flex;
         align-items: center;
     }
+
     .teamLogo {
         width: 21px;
         position: absolute;
         top: 0;
         right: -16px;
     }
-    .teamHomeLogo {
+
+    /* .teamHomeLogo {
         right: -16px;
-    }
+    } */
+
     .teamAwayLogo {
         right: -16px;
     }
+
     @media (max-width: 340px) {
         .teamLogo {
             width: 20px;
@@ -488,8 +495,7 @@
 		style="max-height: {active === ix ? `${calcHeight()}px` : '0'}"
 	>
 		{#each teams as team}
-			<div class="team-block">
-				<h4 class="team-block-header">{team.manager.name}</h4>
+				<!-- <h4 class="team-block-header">{team.manager.name}</h4> -->
 				{#each team.starters as player}
 					<div class="line">
 						<div class="player">
@@ -527,7 +533,6 @@
 						</div>
 					</div>
 				{/each}
-			</div>
 		{/each}
 
 		{#if !expandOverride}
