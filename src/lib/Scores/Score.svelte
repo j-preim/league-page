@@ -86,11 +86,8 @@
 		};
 	};
 
-    let starters;
-    
-    $: digestStarters(ix, players, matchupWeek);
-
 	let el;
+	let innerWidth;
 
 	$: top = el?.getBoundingClientRect()?.top || 0;
 	$: digestTeams();
@@ -102,8 +99,6 @@
 			window.scrollTo({ left: 0, top, behavior: 'smooth' });
 		}, 200);
 	};
-
-    let innerWidth;
 
 	const calcHeight = () => {
 		let multiplier = 73;
