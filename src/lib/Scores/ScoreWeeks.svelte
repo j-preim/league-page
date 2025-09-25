@@ -27,6 +27,7 @@
         processDisplayScore(displayWeek)
     })
 
+    let matchupArray = [];
     let scoreArray = [];
 
     // rand is used as a hacky way to make sure that the each block re-renders when the scoreArray changes
@@ -38,8 +39,10 @@
         const allScores = score.scores;
         scoreArray = [];
         for (const key in allScores) {
-            scoreArray.push(allScores[key][0]);
-            scoreArray.push(allScores[key][1]);
+            matchupArray.push(allScores[key]);
+        }
+        for (const key in matchupArray) {
+            scoreArray.push(matchupArray[key]);
         }
         rand = Math.random();
     }
