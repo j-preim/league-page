@@ -242,30 +242,6 @@
 		background: linear-gradient(to right, var(--WR), var(--WR) 50%, var(--RB) 50%);
 	}
 
-	.K {
-		background-color: var(--K);
-	}
-
-	.DEF {
-		background-color: var(--DEF);
-	}
-
-    .DL, .DE, .DT {
-        background-color: var(--DL);
-    }
-
-    .LB {
-        background-color: var(--LB);
-    }
-
-    .DB, .CB, .SS, .FS {
-        background-color: var(--DB);
-    }
-
-    .IDP {
-        background: linear-gradient(to right, var(--DL), var(--DL) 33.33%, var(--LB) 33.33%, var(--LB) 66.66%, var(--DB) 66.66%);
-    }
-
     .rosters {
         position: relative;
         background-color: var(--fff);
@@ -467,6 +443,7 @@
         width: 21px;
         position: absolute;
         top: 0;
+        right: -16px;
     }
     .teamHomeLogo {
         right: -16px;
@@ -477,6 +454,7 @@
     @media (max-width: 340px) {
         .teamLogo {
             width: 20px;
+            right: -7px;
         }
         .teamHomeLogo {
             right: -7px;
@@ -492,13 +470,13 @@
 		{#each teams as team}
 			<div class="opponent">
 				{#if team.manager.avatar}
-					<img class="avatar" src={team.manager.avatar} alt="avatar" />
+					<img class="avatar" src={team.manager.avatar} alt="team avatar" />
 				{/if}
 				<div class="name">{team.manager.name}</div>
-				<div class="totalPoints">
-					{team.points}
+				<div class="totalPoints totalPointsR">
+					{round(team.points)}
 					{#if team.projection}
-						<div class="totalProjection">({team.projection})</div>
+						<div class="totalProjection">{round(team.projection)}</div>
 					{/if}
 				</div>
 			</div>
