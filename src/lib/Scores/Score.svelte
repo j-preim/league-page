@@ -86,8 +86,11 @@
 		};
 	};
 
+    let starters;
+    
+    $: digestStarters(ix, players, matchupWeek);
+
 	let el;
-	let innerWidth;
 
 	$: top = el?.getBoundingClientRect()?.top || 0;
 	$: digestTeams();
@@ -99,6 +102,8 @@
 			window.scrollTo({ left: 0, top, behavior: 'smooth' });
 		}, 200);
 	};
+
+    let innerWidth;
 
 	const calcHeight = () => {
 		let multiplier = 73;
@@ -388,6 +393,8 @@
 
     .nameHolder {
         display: block;
+        justify-content: flex-start;
+        text-align: left;
     }
 
     .nameHolderR {
@@ -395,10 +402,10 @@
         text-align: right;
     }
 
-    .nameHolderL {
+    /* .nameHolderL {
         justify-content: flex-start;
         text-align: left;
-    }
+    } */
 
     .totalPoints {
         line-height: 1.1em;
@@ -430,15 +437,16 @@
         position: absolute;
         line-height: 1.1em;
         top: 1em;
+        right: 1em;
     }
 
     .pointsL {
         left: 1em;
     }
 
-    .pointsR {
+    /* .pointsR {
         right: 1em;
-    }
+    } */
 
     .playerEmpty {
         height: 100%;
@@ -520,7 +528,7 @@
 									</div>
 								{/if}
                                 </span>
-							<div class="nameHolder nameHolderL">
+							<div class="nameHolder">
 								<span class="playerInfo playerName">{player.name}</span>
 								{#if player.team}
 									<div class="playerTeam">
@@ -530,7 +538,7 @@
 								{/if}
 							</div>
 
-								<span class="points pointsR">{round(player.points)}<div class="totalProjection">
+								<span class="points">{round(player.points)}<div class="totalProjection">
 								{#if player.projection}
 									{round(player.projection)}
 								{/if}
