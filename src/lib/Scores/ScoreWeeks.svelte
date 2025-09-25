@@ -122,4 +122,5 @@
     {#each scoreArray as score, ix (rand * (ix + 1))}
         <Score {ix} {score} {players} {displayWeek} bind:active={active} {leagueTeamManagers} />
     {/each}
+    {console.log(scoreArray)}
 </div>
