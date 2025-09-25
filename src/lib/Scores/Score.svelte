@@ -143,6 +143,10 @@
         border: 2px solid #bbb;
         border-radius: 10px;
         margin: 10px;
+        justify-content: flex-start;
+        left: 0;
+        text-align: left;
+        background-color: #485566;
     }
 
     .divider {
@@ -155,12 +159,12 @@
         width: 15px;
     }
 
-    .home {
+    /* .home {
         justify-content: flex-start;
         left: 0;
         text-align: left;
         background-color: #485566;
-    }
+    } */
 
     :global(.homeGlow) {
         box-shadow: 0 0 6px 4px #3279cf;
@@ -528,7 +532,7 @@
 
 								<span class="points pointsR">{round(player.points)}<div class="totalProjection">
 								{#if player.projection}
-									({round(player.projection)})
+									{round(player.projection)}
 								{/if}
                                 </div></span>
 						</div>
