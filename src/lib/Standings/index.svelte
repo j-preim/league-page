@@ -102,8 +102,11 @@
     }
 
     @media (max-width: 800px) {
-        .standingsTable {
-            font-size: 70%;
+        :global(.left) {
+            font-size: 90%;
+        }
+        :global(.center) {
+            font-size: 90%;
         }
     }
 </style>
