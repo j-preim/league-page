@@ -117,6 +117,7 @@
             <span class="spacer" />
         {/if}
     </div>
+    {console.log(scoreArray)}
     {#each scoreArray as score, ix (rand * (ix + 1))}
         <Score {ix} {score} {players} {displayWeek} bind:active={active} {leagueTeamManagers} />
     {/each}
