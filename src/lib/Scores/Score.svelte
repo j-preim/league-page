@@ -259,8 +259,8 @@
 
     .line {
         position: relative;
-        display: flex;
-        justify-content: space-between;
+        /* display: flex; */
+        /* justify-content: space-between; */
         border-top: 1px solid #bbb;
     }
 
