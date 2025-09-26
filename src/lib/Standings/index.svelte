@@ -100,6 +100,12 @@
         overflow-x: auto;
         margin: 0 0 5em;
     }
+
+    @media (max-width: 800px) {
+        .standingsTable {
+            font-size: 70%;
+        }
+    }
 </style>
 
 <h1>{year ?? ''} League Standings</h1>
