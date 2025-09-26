@@ -36,10 +36,8 @@
     const processDisplayScore = (newWeek) => {
         const score = scoreWeeks[newWeek-1];
         const allScores = score.scores;
-        scoreArray = [];
-        for (const key in allScores) {
-            scoreArray.push(allScores[key]);
-        }
+        // Convert object to array and sort descending by score
+        scoreArray = Object.values(allScores).sort((a, b) => b.points - a.points);
         rand = Math.random();
     }
 
