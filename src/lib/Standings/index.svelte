@@ -108,6 +108,9 @@
         :global(.center) {
             font-size: 80%;
         }
+        h1 {
+        font-size: 1.8em;
+    }
     }
 </style>
 
