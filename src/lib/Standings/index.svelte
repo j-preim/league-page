@@ -109,7 +109,7 @@
             font-size: 80%;
         }
         h1 {
-        font-size: 1.8em;
+        font-size: 1.6em;
     }
     }
 </style>

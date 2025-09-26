@@ -29,6 +29,7 @@
 	}
         .team {
             font-size: 80%;
+            text-wrap-mode: wrap;
         }
     }
 
