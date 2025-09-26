@@ -38,7 +38,7 @@
         const allScores = score.scores;
         // Convert object to array and sort descending by score
         scoreArray = Object.values(allScores).sort((a, b) => b.points - a.points);
-        rand = Math.random();
+        rand = 1;
     }
 
     let active;
