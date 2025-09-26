@@ -544,7 +544,7 @@
 		{/each}
 
 		{#if !expandOverride}
-			<div class="close" on:click={() => expandClose()}>Close Matchup</div>
+			<div class="close" on:click={() => expandClose()}>Hide Detail</div>
 		{/if}
 	</div>
 </div>
