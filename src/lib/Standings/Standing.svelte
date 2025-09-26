@@ -28,7 +28,7 @@
 		margin-right: 0px;
 	}
         .team {
-            font-size: 90%;
+            font-size: 80%;
         }
     }
 

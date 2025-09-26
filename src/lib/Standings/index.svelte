@@ -103,10 +103,10 @@
 
     @media (max-width: 800px) {
         :global(.left) {
-            font-size: 90%;
+            font-size: 80%;
         }
         :global(.center) {
-            font-size: 90%;
+            font-size: 80%;
         }
     }
 </style>
