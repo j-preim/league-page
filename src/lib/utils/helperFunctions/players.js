@@ -39,7 +39,7 @@ export const loadPlayers = async (servFetch, refresh = false) => {
             localStorage.setItem("playersInfo", JSON.stringify(data))
 
             const ts = Math.round(new Date().getTime() / 1000);
-            const newExpiration = ts + (60);
+            const newExpiration = ts + (24 * 3600);
 
             localStorage.setItem("expiration", newExpiration)  
 
