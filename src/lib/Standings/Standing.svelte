@@ -22,6 +22,16 @@
         text-align: left;
     }
 
+    @media (max-width: 800px) {
+        .teamAvatar {
+		height: 30px;
+		margin-right: 0px;
+	}
+        .team {
+            font-size: 90%;
+        }
+    }
+
 </style>
 
 <Row class="contrastRow">
