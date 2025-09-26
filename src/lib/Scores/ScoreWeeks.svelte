@@ -36,9 +36,11 @@
     const processDisplayScore = (newWeek) => {
         const score = scoreWeeks[newWeek-1];
         const allScores = score.scores;
-        // Convert object to array and sort descending by score
-        scoreArray = Object.values(allScores).sort((a, b) => b.points - a.points);
-        rand = 1;
+        scoreArray = [];
+        for (const key in allScores) {
+            scoreArray.push(allScores[key]);
+        }
+        rand = Math.random();
     }
 
     let active;
@@ -117,7 +119,6 @@
             <span class="spacer" />
         {/if}
     </div>
-    {console.log(scoreArray)}
     {#each scoreArray as score, ix (rand * (ix + 1))}
         <Score {ix} {score} {players} {displayWeek} bind:active={active} {leagueTeamManagers} />
     {/each}

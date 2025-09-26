@@ -113,7 +113,7 @@
 
 <style>
     .score {
-        width: 60%;
+        width: 70%;
         max-width: 600px;
         margin: 0px auto;
     }
@@ -142,7 +142,7 @@
         z-index: 2;
         border: 2px solid #bbb;
         border-radius: 10px;
-        margin: 10px;
+        margin: 10px 0;
         justify-content: flex-start;
         left: 0;
         text-align: left;
@@ -266,7 +266,7 @@
 
     .player {
         position: relative;
-        width: 46%;
+        width: auto;
         padding: 0 1.5% 0 2.5%;
         text-align: left;
     }

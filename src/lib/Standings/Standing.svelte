@@ -2,14 +2,10 @@
     import { gotoManager } from '$lib/utils/helper';
   	import { Row, Cell } from '@smui/data-table';
 
-    export let columnOrder, team, standing, leagueTeamManagers;
+    export let columnOrder, team, standing;
 </script>
 
 <style>
-    .clickable {
-        cursor: pointer;
-    }
-	
 	.teamAvatar {
 		vertical-align: middle;
 		border-radius: 50%;
@@ -25,6 +21,7 @@
     .team {
         text-align: left;
     }
+
 </style>
 
 <Row class="contrastRow">
